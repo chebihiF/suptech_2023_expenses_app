@@ -7,18 +7,29 @@ void main() {
 class MyHomepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Expenses App'),
-      ),
-      body: Column(children: <Widget>[
-        Card(
-          child: Text('Chart'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Expenses App'),
         ),
-        Card(
-          child: Text('List of TX'),
-        )
-      ]),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Card(
+                  child: Text('Chart'),
+                  color: Colors.blue,
+                  elevation: 5,
+                ),
+              ),
+              Card(
+                color: Colors.red,
+                child: Text('List of TX'),
+              )
+            ]),
+      ),
     );
   }
 }
