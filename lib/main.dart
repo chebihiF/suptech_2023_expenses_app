@@ -1,3 +1,4 @@
+import './Transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -5,6 +6,12 @@ void main() {
 }
 
 class MyHomepage extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(
+        id: 't1', title: 'new Shose', amount: 69.99, date: DateTime.now()),
+    Transaction(id: 't2', title: 'Gaz', amount: 30.99, date: DateTime.now())
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
