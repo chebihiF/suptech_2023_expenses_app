@@ -1,13 +1,10 @@
+import 'package:expenses_app/models/transaction.dart';
 import 'package:flutter/material.dart';
-import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-        id: 't1', title: 'new Shose', amount: 69.99, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Gaz', amount: 30.99, date: DateTime.now())
-  ];
+  final List<Transaction> transactions;
+  TransactionList(this.transactions);
 
   @override
   Widget build(BuildContext context) {
