@@ -13,6 +13,9 @@ class MyHomepage extends StatelessWidget {
     Transaction(id: 't2', title: 'Gaz', amount: 30.99, date: DateTime.now())
   ];
 
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,14 +39,31 @@ class MyHomepage extends StatelessWidget {
                 elevation: 5,
                 child: Container(
                     padding: EdgeInsets.all(10),
-                    child: Column(children: [
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Title'),
-                      ),
-                      TextField(
-                        decoration: InputDecoration(labelText: 'Amount'),
-                      )
-                    ])),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          TextField(
+                            decoration: InputDecoration(labelText: 'Title'),
+                            controller: titleController,
+                          ),
+                          TextField(
+                            decoration: InputDecoration(labelText: 'Amount'),
+                            controller: amountController,
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              transactions.add(Transaction(
+                                  id: DateTime.now().toString(),
+                                  title: titleController.text,
+                                  amount: double.parse(amountController.text),
+                                  date: DateTime.now()));
+                            },
+                            child: Text('Add Transaction'),
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.purple)),
+                          )
+                        ])),
               ),
               Column(
                 children: transactions
