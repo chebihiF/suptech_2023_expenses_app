@@ -20,7 +20,7 @@ class MyHomepage extends StatelessWidget {
           title: const Text('Expenses App'),
         ),
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Container(
@@ -31,9 +31,21 @@ class MyHomepage extends StatelessWidget {
                   elevation: 5,
                 ),
               ),
-              Card(
-                color: Colors.red,
-                child: Text('List of TX'),
+              Column(
+                children: transactions
+                    .map((tx) => Card(
+                            child: Row(
+                          children: [
+                            Text(tx.amount.toString()),
+                            Column(
+                              children: [
+                                Text(tx.title),
+                                Text(tx.date.toString())
+                              ],
+                            )
+                          ],
+                        )))
+                    .toList(),
               )
             ]),
       ),
