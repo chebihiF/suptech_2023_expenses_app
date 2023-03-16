@@ -33,9 +33,9 @@ class _MyHomepageState extends State<MyHomepage> {
     });
   }
 
-  void _startAddNewTransaction(BuildContext Ctx) {
+  void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
-        context: Ctx,
+        context: ctx,
         builder: (_) {
           return NewTransaction(_addTransaction);
         });
@@ -44,37 +44,40 @@ class _MyHomepageState extends State<MyHomepage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Expenses App'),
-          actions: [
-            IconButton(
-                onPressed: () => _startAddNewTransaction(context),
-                icon: Icon(Icons.add))
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  child: Card(
-                    child: Text('Chart'),
-                    color: Colors.blue,
-                    elevation: 5,
+      home: Builder(builder: (BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Expenses App'),
+            actions: [
+              IconButton(
+                  onPressed: () => _startAddNewTransaction(context),
+                  icon: Icon(Icons.add))
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    width: double.infinity,
+                    child: Card(
+                      child: Text('Chart'),
+                      color: Colors.blue,
+                      elevation: 5,
+                    ),
                   ),
-                ),
-                TransactionList(transactions),
-              ]),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => _startAddNewTransaction(context),
-          child: Icon(Icons.add),
-        ),
-      ),
+                  TransactionList(transactions),
+                ]),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => _startAddNewTransaction(context),
+            child: Icon(Icons.add),
+          ),
+        );
+      }),
     );
   }
 }
