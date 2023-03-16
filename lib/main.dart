@@ -38,9 +38,9 @@ class _MyHomepageState extends State<MyHomepage> {
         context: ctx,
         builder: (_) {
           return GestureDetector(
-            child: NewTransaction(_addTransaction),
             onTap: () {},
             behavior: HitTestBehavior.opaque,
+            child: NewTransaction(_addTransaction),
           );
         });
   }
@@ -48,6 +48,7 @@ class _MyHomepageState extends State<MyHomepage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.purple, accentColor: Colors.amber),
       home: Builder(builder: (BuildContext context) {
         return Scaffold(
           appBar: AppBar(
