@@ -13,20 +13,22 @@ class MyHomepage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Expenses App'),
         ),
-        body: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Container(
-                width: double.infinity,
-                child: Card(
-                  child: Text('Chart'),
-                  color: Colors.blue,
-                  elevation: 5,
+        body: SingleChildScrollView(
+          child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  child: Card(
+                    child: Text('Chart'),
+                    color: Colors.blue,
+                    elevation: 5,
+                  ),
                 ),
-              ),
-              UserTransaction()
-            ]),
+                UserTransaction()
+              ]),
+        ),
       ),
     );
   }
