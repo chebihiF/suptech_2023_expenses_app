@@ -1,3 +1,4 @@
+import 'package:expenses_app/widgets/new_transaction.dart';
 import 'package:expenses_app/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
@@ -6,12 +7,21 @@ void main() {
 }
 
 class MyHomepage extends StatelessWidget {
+  void startAddNewTransaction(BuildContext Ctx) {
+    showModalBottomSheet(
+        context: Ctx,
+        builder: (_) {
+          return NewTransaction();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Expenses App'),
+          actions: [IconButton(onPressed: () => {}, icon: Icon(Icons.add))],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -26,7 +36,11 @@ class MyHomepage extends StatelessWidget {
                     elevation: 5,
                   ),
                 ),
-                UserTransaction()
+                UserTransaction(),
+                FloatingActionButton(
+                  onPressed: () => {},
+                  child: Icon(Icons.add),
+                )
               ]),
         ),
       ),
