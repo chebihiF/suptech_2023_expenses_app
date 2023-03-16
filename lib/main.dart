@@ -48,11 +48,22 @@ class _MyHomepageState extends State<MyHomepage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.purple, accentColor: Colors.amber),
+      theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: 'Quicksand',
+          appBarTheme: AppBarTheme(
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  titleMedium: TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)))),
       home: Builder(builder: (BuildContext context) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Expenses App'),
+            title: const Text(
+              'Expenses App',
+            ),
             actions: [
               IconButton(
                   onPressed: () => _startAddNewTransaction(context),
