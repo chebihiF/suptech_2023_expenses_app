@@ -55,14 +55,16 @@ class _MyHomepageState extends State<MyHomepage> {
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
                   titleMedium: TextStyle(
+                      color: Colors.white,
                       fontFamily: 'OpenSans',
-                      fontSize: 20,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold)))),
       home: Builder(builder: (BuildContext context) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text(
+            title: Text(
               'Expenses App',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             actions: [
               IconButton(
