@@ -33,7 +33,7 @@ class _MyHomepageState extends State<MyHomepage> {
 
   void _addTransaction(String txtitle, double txamount) {
     setState(() {
-      transactions.add(Transaction(
+      _transactions.add(Transaction(
           id: DateTime.now().toString(),
           title: txtitle,
           amount: txamount,

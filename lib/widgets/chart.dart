@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:js_util';
-
 import 'package:expenses_app/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,12 +22,13 @@ class Chart extends StatelessWidget {
           totalSum += recentTransactions[i].amount;
         }
       }
-      return {'day': DateFormat.E(weekday), 'amount': totalSum};
+      return {'day': DateFormat.E().format(weekday), 'amount': totalSum};
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(groupTransactionsValues);
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
